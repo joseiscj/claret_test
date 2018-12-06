@@ -1,0 +1,39 @@
+systemName "Email"
+
+usecase "Escrita e envio de email" {
+  version "1.0" type "Creation" user "User" date "06/12/2018"
+  actor emailUser "Usuário do Gmail"
+  
+  preCondition "O usuário deve ter acessado o sistema com email e senha válidos."
+  
+  basic {
+    step 1 emailUser "seleciona a opção Enviar Mensagem" af[1]
+    step 2 system "apresenta um formulário com as informações necessárias para o envio da mensagem" ef[1,2]
+    step 3 emailUser "preenche a mensagem a ser enviada." af[2,3]
+    step 4 system "valida o campo de mensagem e envia a mensagem ao usuário." 
+  }
+  
+  alternative 1 "O usuário fecha a página após a abertura do formulário de preenchimento" {
+  	step 1 emailUser "O sistema não envia nenhuma mensagem e não apresenta nenhuma mensagem de erro" bs 1
+  }
+  
+  alternative 2 "O usuário salva a mensagem para edição posterior." {
+  	step 1 emailUser "O sistema guarda a mensagem para edição posterior" bs 1
+  }
+  
+  alternative 3 "O usuário recupera a mensagem a ser enviada do rascunho" {
+  	step 1 emailUser "O usuário vai continuar editando a mensagem salva." bs 3
+  } 
+  
+  exception 1 "O usuário deixa campo de destinatário em branco." {
+  	step 2 system "alerta que não pode deixar o campo de destinatário em branco" bs 2
+  }
+  
+  exception 2 "O usuário preenche campo de destinatário com caracteres inválidos." {
+  	step 2 system "alerta para que o usuário preencha com o endereço de email correto" bs 2
+  }
+  
+  
+  postCondition "Mensagem registrada e enviada ao destinatário."
+}
+

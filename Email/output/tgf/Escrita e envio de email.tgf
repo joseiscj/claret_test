@@ -1,0 +1,19 @@
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+#
+1 2 [c] O usuário deve ter acessado o sistema com email e senha válidos.
+2 3 [s] emailUser seleciona a opção Enviar Mensagem
+3 4 [e] system apresenta um formulário com as informações necessárias para o envio da mensagem
+4 5 [s] emailUser preenche a mensagem a ser enviada.
+5 6 [e] system valida o campo de mensagem e envia a mensagem ao usuário.
+6 7 [c] Mensagem registrada e enviada ao destinatário.
+2 2 [s] emailUser O sistema não envia nenhuma mensagem e não apresenta nenhuma mensagem de erro
+3 3 [e] system alerta que não pode deixar o campo de destinatário em branco
+3 3 [e] system alerta para que o usuário preencha com o endereço de email correto
+4 2 [s] emailUser O sistema guarda a mensagem para edição posterior
+4 4 [s] emailUser O usuário vai continuar editando a mensagem salva.

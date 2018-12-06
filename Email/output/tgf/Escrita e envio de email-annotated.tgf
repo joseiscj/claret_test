@@ -1,0 +1,41 @@
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+8 8
+9 9
+10 10
+11 11
+12 12
+13 13
+14 14
+15 15
+16 16
+17 17
+18 18
+#
+1 8 conditions
+8 2 O usuário deve ter acessado o sistema com email e senha válidos.
+2 9 steps
+9 3 emailUser seleciona a opção Enviar Mensagem
+3 10 expected_results
+10 4 system apresenta um formulário com as informações necessárias para o envio da mensagem
+4 11 steps
+11 5 emailUser preenche a mensagem a ser enviada.
+5 12 expected_results
+12 6 system valida o campo de mensagem e envia a mensagem ao usuário.
+6 13 conditions
+13 7 Mensagem registrada e enviada ao destinatário.
+2 14 steps
+14 2 emailUser O sistema não envia nenhuma mensagem e não apresenta nenhuma mensagem de erro
+3 15 expected_results
+15 3 system alerta que não pode deixar o campo de destinatário em branco
+3 16 expected_results
+16 3 system alerta para que o usuário preencha com o endereço de email correto
+4 17 steps
+17 2 emailUser O sistema guarda a mensagem para edição posterior
+4 18 steps
+18 4 emailUser O usuário vai continuar editando a mensagem salva.
